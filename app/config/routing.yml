@@ -1,3 +1,13 @@
+admin_login_check:
+    path: /admin/login_check
+
+admin_login:
+    path: /admin/login
+    defaults: { _controller: AdminBundle:Security:login }
+
+login_check:
+    path: /login_check
+
 _liip_imagine:
     resource: "@LiipImagineBundle/Resources/config/routing.xml"
 
