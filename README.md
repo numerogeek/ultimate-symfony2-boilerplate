@@ -32,11 +32,16 @@ The easiest way to get started is to clone the repository:
 $ git clone https://github.com/numerogeek/ultimate-symfony2-boilerplate myproject
 $ cd myproject
 $ git remote rm origin
+$ mkdir -p web/uploads/posts
 
 #setup ACL (refer to the symfony documentation.
 $ HTTPDUSER=`ps aux | grep -E '[a]pache|[h]ttpd|[_]www|[w]ww-data|[n]ginx' | grep -v root | head -1 | cut -d\  -f1`
 $ sudo setfacl -R -m u:"$HTTPDUSER":rwX -m u:`whoami`:rwX app/cache app/logs web/uploads
 $ sudo setfacl -dR -m u:"$HTTPDUSER":rwX -m u:`whoami`:rwX app/cache app/logs web/uploads
+
+#composer install
+
+$composer install
 
 #install assets
 

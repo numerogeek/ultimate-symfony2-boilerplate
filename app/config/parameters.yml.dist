@@ -18,8 +18,8 @@ parameters:
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
     base_url:          http://www.website.com
-    contact_to_email   ~
-    contact_to_name    ~
-    contact_from_email ~
-    contact_from_name  ~
+    contact_to_email:   ~
+    contact_to_name:    ~
+    contact_from_email: ~
+    contact_from_name:  ~
 
