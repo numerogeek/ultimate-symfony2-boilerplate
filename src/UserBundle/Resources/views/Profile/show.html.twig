@@ -1,0 +1,17 @@
+{% extends '::page.html.twig' %}
+{% block header %}
+    <section class="sign-up section-padding text-center login" id="download">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h1 class="white">Mon Profil</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block body %}
+    {% include "FOSUserBundle:Profile:show_content.html.twig" %}
+{% endblock body %}
+{% block title %} Mon compte {{ parent() }}{% endblock %}

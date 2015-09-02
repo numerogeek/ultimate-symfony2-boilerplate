@@ -1,0 +1,182 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: services.yml }
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+    locale: fr
+
+framework:
+    #esi:             ~
+    translator:      { fallbacks: ["%locale%"] }
+    secret:          "%secret%"
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: ~
+    form:            ~
+    csrf_protection: ~
+    validation:      { enable_annotations: true }
+    #serializer:      { enable_annotations: true }
+    templating:
+        engines: ['twig']
+        #assets_version: SomeVersionScheme
+    default_locale:  "%locale%"
+    trusted_hosts:   ~
+    trusted_proxies: ~
+    session:
+        # handler_id set to null will use default session handler from php.ini
+        handler_id:  ~
+    fragments:       ~
+    http_method_override: true
+
+# Twig Configuration
+twig:
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
+
+# Assetic Configuration
+assetic:
+    debug:          "%kernel.debug%"
+    use_controller: false
+    bundles:        [ ]
+    #java: /usr/bin/java
+    filters:
+        cssrewrite: ~
+        #closure:
+        #    jar: "%kernel.root_dir%/Resources/java/compiler.jar"
+        #yui_css:
+        #    jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver:   pdo_mysql
+        host:     "%database_host%"
+        port:     "%database_port%"
+        dbname:   "%database_name%"
+        user:     "%database_user%"
+        password: "%database_password%"
+        charset:  UTF8
+        # if using pdo_sqlite as your database driver:
+        #   1. add the path in parameters.yml
+        #     e.g. database_path: "%kernel.root_dir%/data/data.db3"
+        #   2. Uncomment database_path in parameters.yml.dist
+        #   3. Uncomment next line:
+        #     path:     "%database_path%"
+
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        auto_mapping: true
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: "%mailer_transport%"
+    host:      "%mailer_host%"
+    username:  "%mailer_user%"
+    password:  "%mailer_password%"
+    spool:     { type: memory }
+
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: UserBundle\Entity\User
+    registration:
+        form:
+            type: app_user_registration
+
+stof_doctrine_extensions:
+    default_locale: fr_FR
+    orm:
+        default:
+            tree: true
+            timestampable: true # not needed: listeners are not enabled by default
+            sluggable: true
+
+vich_uploader:
+    db_driver: orm
+    mappings:
+        post_cover:
+            uri_prefix:         /uploads/posts
+            upload_destination: %kernel.root_dir%/../web/uploads/posts
+
+ivory_ck_editor:
+    default_config: my_config
+    configs:
+        my_config:
+            uiColor:  "#F3F3F3"
+            toolbar:  [ [ 'Preview' ], [ 'Cut','Copy','Paste','PasteText','PasteFromWord','-','Undo','Redo' ], [ 'Find','Replace','-','SelectAll','-','SpellChecker', 'Scayt' ], [ 'Source' ], [ "About" ], "/", [ 'Bold','Italic','Underline','Strike', 'Blockquote','Subscript','Superscript','-','RemoveFormat' ], [ 'NumberedList','BulletedList','-','Outdent','Indent','-','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock' ], [ 'Link','Unlink','Anchor' ], [ 'pbckcode', 'Image', 'Video', 'Table','SpecialChar','Iframe' ], '/', [ 'Styles', 'Format','Font','FontSize' ], [ 'TextColor','BGColor' ], [ 'RemoveFormat' ], [ 'Maximize' ] ]
+            filebrowserBrowseRoute: elfinder
+            filebrowserBrowseRouteParameters:
+                instance: ckeditor
+
+liip_imagine:
+    resolvers:
+       default:
+          web_path: ~
+
+    filter_sets:
+        cache: ~
+        thumb:
+            quality: 75
+            filters:
+                thumbnail: { size: [120, 90], mode: outbound }
+
+knp_paginator:
+    page_range: 5                      # default page range used in pagination control
+    default_options:
+        page_name: page                # page query parameter name
+        sort_field_name: sort          # sort field query parameter name
+        sort_direction_name: direction # sort direction query parameter name
+        distinct: true                 # ensure distinct results, useful when ORM queries are using GROUP BY statements
+    template:
+        pagination: KnpPaginatorBundle:Pagination:sliding.html.twig     # sliding pagination controls template
+        sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig # sort link template
+
+fm_elfinder:
+    instances:
+        ckeditor:
+            locale: %locale% # defaults to current request locale
+            editor: ckeditor # other options are tinymce, tinymce4, form, custom and simple
+            fullscreen: true # defaults true, applies to simple and ckeditor editors
+            include_assets: true # disable if you want to handle loading of the javascript and css assets yourself
+            cors_support: false
+            relative_path: false
+            connector:
+                debug: true # defaults to false
+                roots:       # at least one root must be defined
+                    uploads:
+                        show_hidden: false # defaults to false
+                        driver: LocalFileSystem
+                        path: uploads
+                        url: /uploads
+                        upload_allow: ['image/png', 'image/jpg', 'image/jpeg', 'application/pdf']
+                        upload_deny: ['all']
+                        upload_max_size: 10M
+
+
+mremi_contact:
+    store_data:            false
+    contact_class:         AppBundle\Entity\Contact
+
+    form:
+        type:              mremi_contact
+        name:              contact_form
+        validation_groups: [Default]
+        subject_provider:  mremi_contact.subject_provider.noop
+#        captcha_type:      ~
+
+    email:
+        mailer:            mremi_contact.mailer.twig_swift
+        from:
+            - { address: %contact_from_email%, name: %contact_from_name% }
+        to:
+            - { address: %contact_to_email%, name: %contact_to_name% }
+        template:          MremiContactBundle:Contact:email.txt.twig
+
+accelerator_cache:
+    host: %base_url%
+    web_dir: %kernel.root_dir%/../web
+    mode: curl

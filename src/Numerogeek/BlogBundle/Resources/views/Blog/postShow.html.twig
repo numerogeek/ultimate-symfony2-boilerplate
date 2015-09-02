@@ -1,0 +1,53 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}
+    {{ post.title ~ parent() }}
+{% endblock %}
+
+{% block header %}
+<section class="sign-up section-padding text-center login" id="download">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h2 class="white">{{ post.title | upper }}</h2>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block body %}
+        <section class="features-extra section-padding" id="blog">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="feature-list">
+                            <p>{{ post.publishedAt | date('d/m/Y') }} - {{ post.summary }} </p>
+                        </div>
+                    </div>
+                    </div>
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <img src="{{ vich_uploader_asset(post, 'cover') | imagine_filter('post_wide') }}" class="img-responsive" alt=""/>
+
+                    </div>
+
+                </div>
+                </div>
+            </div>
+            <hr />
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        {{ post.content |raw }}
+                    </div>
+                </div>
+
+                <h1>Ne ratez aucune leçon !</h1>
+                <h3><a href="{{ url('fos_user_registration_register') }}" class="btn-lg btn-success"><span class="glyphicon glyphicon-user"></span> Inscrivez vous</a></h3>
+            </div>
+
+        </section>
+
+{% endblock %}

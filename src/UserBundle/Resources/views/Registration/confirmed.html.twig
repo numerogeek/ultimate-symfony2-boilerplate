@@ -1,0 +1,21 @@
+{% extends "::page.html.twig" %}
+
+
+{% block header %}
+<section class="sign-up section-padding text-center login" id="download">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <h3 class="white">{{ 'registration.confirmed'|trans({'%username%': user.username}, 'FOSUserBundle') }}</h3>
+                {% if app.session is not empty %}
+                    {% set targetUrl = app.session.get('_security.' ~ app.security.token.providerKey ~ '.target_path') %}
+                    {% if targetUrl is not empty %}<p><a href="{{ targetUrl }}">{{ 'registration.back'|trans({}, 'FOSUserBundle') }}</a></p>{% endif %}
+                {% endif %}
+                <a class="btn-fill sign-up-btn btn-lg" href="{{ url('homepage') }}">Retour à l'accueil</a>
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock header %}
+{% block messages %}{% endblock %}

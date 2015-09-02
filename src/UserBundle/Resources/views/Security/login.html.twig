@@ -1,0 +1,38 @@
+{% extends "::home.html.twig" %}
+
+{% block header %}
+    {% if error %}
+        <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
+    {% endif %}
+    <section class="sign-up section-padding text-center login" id="download">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <h3 class="white">Connexion</h3>
+                    <p class="white">Connectez vous sur notre plateforme sécurisée.</p>
+                    {% if error %}
+                            <div class="alert alert-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ error|trans({}, 'FOSUserBundle') }}</div>
+
+                    {% endif %}
+                    <form class="signup-form" action="{{ path("fos_user_security_check") }}" method="post" role="form">
+                        <div class="form-input-group">
+                            <i class="fa fa-envelope"></i>
+                            <input type="text" class="" placeholder="{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}"  id="username" name="_username" value="{{ last_username }}" required="required">
+                        </div>
+                        <div class="form-input-group">
+                            <i class="fa fa-lock"></i>
+                            <input type="password" id="password" name="_password" required="required" placeholder="{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}" required>
+                        </div>
+                        <button type="submit" class="btn-fill sign-up-btn">{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}</button>
+                        <div class="hidden">
+                            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+
+                            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                            <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock header %}

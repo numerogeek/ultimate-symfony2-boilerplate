@@ -1,0 +1,82 @@
+{% extends 'AdminBundle::layout.html.twig' %}
+
+
+    {% block title %}
+        Blog > Liste des catégories
+    {% endblock%}
+    {% block page_title %}
+        Blog
+    {% endblock %}
+
+
+    {% block page_content %}
+
+
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">{{   block('title') }}  </h3>
+            <span class="pull-right">
+                <a href="{{ path('blog_admin_category_new') }}"><button class="btn btn-block btn-success" ">
+                    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Ajouter une catégorie</button></a>
+            </span>
+            </div><!-- /.box-header -->
+            <div class="box-body">
+                <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+                                <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>Slug</th>
+                                    <th>Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for entity in entities %}
+                                    <tr>
+                                        <td>{{ entity.id }}</td>
+                                        <td>{{ entity.name }}</td>
+                                        <td>{{ entity.slug }}</td>
+                                        <td>
+
+                                            <a  class="btn btn-info" href="{{ path('blog_admin_category_edit', { 'id': entity.id }) }}">
+                                                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                                                Editer
+                                            </a>
+
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>Slug</th>
+                                    <th>Actions</th>
+                                </tr>
+                                </tfoot>
+                            </table></div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.box-body -->
+        </div>
+    {% endblock %}
+
+
+
+
+    {% block javascripts_inline %}
+        <!-- page script -->
+        <script type="text/javascript">
+            $(function () {
+                $('#example1').dataTable();
+            });
+        </script>
+
+    {% endblock %}
+

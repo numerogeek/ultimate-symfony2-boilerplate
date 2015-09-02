@@ -1,0 +1,23 @@
+_liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.xml"
+
+mremi_contact_form:
+    resource: "@MremiContactBundle/Resources/config/routing.xml"
+
+_user_bundle:
+    resource: "@UserBundle/Resources/config/routing.yml"
+
+elfinder:
+     resource: "@FMElfinderBundle/Resources/config/routing.yml"
+
+admin:
+    resource: "@AdminBundle/Controller/"
+    type:     annotation
+    prefix:   /admin
+
+numerogeek_blog:
+    resource: "@NumerogeekBlogBundle/Resources/config/routing.yml"
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation

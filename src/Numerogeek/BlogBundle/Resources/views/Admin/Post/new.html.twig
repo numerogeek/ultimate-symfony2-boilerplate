@@ -1,0 +1,38 @@
+{% extends 'AdminBundle::layout.html.twig' %}
+
+
+
+{% block title %}
+    Blog > Créer un article
+{% endblock%}
+{% block page_title %}
+    Blog
+{% endblock %}
+
+{% block page_content %}
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+
+        <div class="box box-primary">
+            <div class="box-header">
+                <h3 class="box-title">Créer un article</h3>
+            </div>
+            {{ form_start(form) }}
+            <div class="box-body">
+                {{ form_rest(form) }}
+            </div>
+            <div class="box-footer clearfix">
+
+                <button type="reset" class="btn btn-warning pull-left margin"><i class="fa fa-times"></i> Reset</button>
+                <a class="btn btn-warning margin" href="{{ path('blog_admin_post') }}">Retour à la liste</a>
+
+                <button type="submit" class="btn btn-primary pull-right margin"><i class="fa fa-check-square"></i> Créer</button>
+            </div>
+            {{ form_end(form) }}
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

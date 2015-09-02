@@ -1,0 +1,17 @@
+
+<section class="sign-up section-padding text-center" id="download">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <h3>Apprenez à gérer votre argent.</h3>
+                <p> et placez intelligemment à partir de 1.000 €</p>
+                <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="signup-form fos_user_registration_register">
+                    {{ form_widget(form) }}
+                    <div>
+                        <input type="submit" class="btn-fill sign-up-btn" value="Créer mon compte" name="create_account" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,10 @@
+
+numerogeek_blog:
+    resource: "@NumerogeekBlogBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+numerogeek_blog_admin:
+    resource: "@NumerogeekBlogBundle/Controller/Admin"
+    type:     annotation
+    prefix:   /admin

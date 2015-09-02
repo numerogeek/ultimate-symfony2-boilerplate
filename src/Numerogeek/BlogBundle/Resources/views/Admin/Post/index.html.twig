@@ -1,0 +1,87 @@
+{% extends 'AdminBundle::layout.html.twig' %}
+
+
+{% block title %}
+    Blog > Liste des articles
+{% endblock%}
+{% block page_title %}
+    Blog
+{% endblock %}
+
+
+{% block page_content %}
+
+
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">Liste des articles</h3>
+            <span class="pull-right">
+                <a href="{{ path('blog_admin_post_new') }}"><button class="btn btn-block btn-success" ">
+                    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Ajouter un article</button></a>
+            </span>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+            <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+                            <thead>
+                            <tr>
+                                <th>Titre</th>
+                                <th>Publication</th>
+                                <th>en ligne</th>
+                                <th>Création</th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for entity in entities %}
+                                <tr>
+                                    <td><a href="{{ path('blog_admin_post_edit', { 'id': entity.id }) }}">{{ entity.title }}}</a></td>
+                                    <td>{% if entity.publishedAt %}{{ entity.publishedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                    <td>{{ entity.online }}</td>
+                                    <td>{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                    <td>
+                                        <a  class="btn btn-success" href="{{ path('blog_show', { 'slug': entity.slug }) }}">
+                                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                                    Voir
+                                                </a>
+
+                                                <a  class="btn btn-info" href="{{ path('blog_admin_post_edit', { 'id': entity.id }) }}">
+                                                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                                                    Editer
+                                                </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Titre</th>
+                                    <th>Publication</th>
+                                    <th>en ligne</th>
+                                    <th>Création</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </tfoot>
+                        </table></div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.box-body -->
+    </div>
+{% endblock %}
+
+
+
+
+{% block javascripts_inline %}
+    <!-- page script -->
+    <script type="text/javascript">
+        $(function () {
+            $('#example1').dataTable();
+        });
+    </script>
+
+{% endblock %}

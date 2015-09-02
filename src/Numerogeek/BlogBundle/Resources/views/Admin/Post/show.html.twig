@@ -1,0 +1,72 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Post</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ entity.title }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ entity.slug }}</td>
+            </tr>
+            <tr>
+                <th>Summary</th>
+                <td>{{ entity.summary }}</td>
+            </tr>
+            <tr>
+                <th>Contentformatter</th>
+                <td>{{ entity.contentFormatter }}</td>
+            </tr>
+            <tr>
+                <th>Rawcontent</th>
+                <td>{{ entity.rawContent }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ entity.content }}</td>
+            </tr>
+            <tr>
+                <th>Publishedat</th>
+                <td>{{ entity.publishedAt|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Covername</th>
+                <td>{{ entity.coverName }}</td>
+            </tr>
+            <tr>
+                <th>Online</th>
+                <td>{{ entity.online }}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{{ entity.createdAt|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Updatedat</th>
+                <td>{{ entity.updatedAt|date('Y-m-d H:i:s') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('post') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('post_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

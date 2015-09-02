@@ -1,0 +1,26 @@
+{% extends "::page.html.twig" %}
+
+{% block header %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="hero-content text-center">
+                    <h1>Créer mon compte YouFinance gratuitement, maintenant !</h1>
+                    <p class="intro">Inscription totalement gratuite. Pas de carte de crédit requise. Pas de suprise.</p>
+                    <p class="intro">Vous recevrez un email par semaine avec la leçon, et vous aurez un accès privilégié à la plateforme pour placer votre argent.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="down-arrow floating-arrow"><a href="#"><i class="fa fa-angle-down"></i></a></div>
+{% endblock header %}
+
+{% block body %}
+    {% include "FOSUserBundle:Registration:register_content.html.twig" %}
+{% endblock %}
+
+ {% block message %}
+     {% if error %}
+         <div class="alert alert-warning" role="alert">{{ error|trans({}, 'FOSUserBundle') }}</div>
+     {% endif %}
+{% endblock %}

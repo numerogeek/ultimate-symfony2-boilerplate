@@ -1,0 +1,147 @@
+<div class="container section-padding-mini">
+
+    <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xs-offset-0 col-sm-offset-0 " >
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">MES INFORMATIONS</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3 col-lg-3 " align="center">
+                    <span class="glyphicon glyphicon-user" style="font-size: 100px"></span>
+                    </div>
+
+                    <div class=" col-md-9 col-lg-9 ">
+                        <table class="table table-user-information">
+                            <tbody>
+                            <tr>
+                                <td>Nom</td>
+                                <td>{{ user.name }}</td>
+                            </tr>
+                            <tr>
+                                <td>username</td>
+                                <td>{{ user.username }}</td>
+                            </tr>
+                            <tr>
+                                <td>Prénom</td>
+                                <td>{{ user.firstName }}</td>
+                            </tr>
+                            <tr>
+                                <td>Adresse</td>
+                                <td>{{ user.address }}</td>
+                            </tr>
+                            <tr>
+                                <td>Code Postal</td>
+                                <td>{{ user.zipCode }}</td>
+                            </tr>
+                            <tr>
+                                <td>Ville</td>
+                                <td>{{ user.city }}</td>
+                            </tr>
+
+                            <tr>
+                            <tr>
+                                <td>Teléphone</td>
+                                <td>{{ user.phone }}</td>
+                            </tr>
+                            <tr>
+                                <td>Date de naissance</td>
+                                <td>{{ user.birth |date('d/m/Y') }}</td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td>{{ user.email }}</td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+
+                        <a href="#" class="btn btn-primary">Modifier mon profil</a>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <a data-original-title="Supprimer mon compte" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger "><i class="glyphicon glyphicon-remove"></i></a>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xs-offset-0 col-sm-offset-0 " >
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">MES INFORMATIONS</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3 col-lg-3 " align="center">
+                        <span class="glyphicon glyphicon-euro" style="font-size: 50px"></span>
+                    </div>
+
+                    <div class=" col-md-9 col-lg-9 ">
+                        <table class="table table-user-information">
+                            <tbody>
+                                <tr>
+                                    <td>Crédit</td>
+                                    <td>
+                                        {{ (credit) | number_format(0, '.', ' ') }} €
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <a href="{{ path('balance_add') }}" class="btn btn-primary">Ajouter Crédit (test_mode)</a>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="row">
+
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xs-offset-0 col-sm-offset-0 " >
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">MON HISTORIQUE DE TRANSACTION</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3 col-lg-3 " align="center">
+                            <span class="glyphicon glyphicon-th-list" style="font-size: 100px"></span>
+                        </div>
+
+                        <div class=" col-md-9 col-lg-9 ">
+                            <table class="table table-hover">
+
+                                <tbody>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Label</th>
+                                        <th>Montant</th>
+                                    </tr>
+                                {% for operation in operations %}
+                                    <tr>
+                                        <td>{{ operation.createdAt | date('d/m/Y h:i:s') }}</td>
+                                        <td>{{ operation.label }}</td>
+                                        <td>{{ (operation.amount) | number_format(0, '.', ' ') }} €</td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

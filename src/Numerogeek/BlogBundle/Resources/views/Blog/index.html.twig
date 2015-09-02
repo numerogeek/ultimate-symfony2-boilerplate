@@ -1,0 +1,25 @@
+{% extends "::base.html.twig" %}
+
+{% block header %}
+    <section class="sign-up section-padding text-center login" id="download">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h2 class="white">Apprenez à vous constituer un capital, en 5 minutes par jour.</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block body %}
+
+{% for post in pagination %}
+
+    {% include 'BlogBundle:Blog:_postListTemplate.html.twig' with {'post': post} %}
+
+{% endfor %}
+
+{% endblock %}
+
+{% block title %} Le blog {{ parent() }}{% endblock %}
