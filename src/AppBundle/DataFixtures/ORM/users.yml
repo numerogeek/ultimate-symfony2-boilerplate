@@ -1,0 +1,13 @@
+UserBundle\Entity\User:
+    admin:
+        username: admin
+        email: admin@example.Com
+        plainPassword: test
+        name: Doe
+        firstName: John
+        address: 7 famous street
+        zipCode: 59000
+        city: Lille
+        phone: "0102030405"
+        enabled: true
+        roles: ['ROLE_ADMIN']
