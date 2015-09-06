@@ -3,7 +3,7 @@ admin_login_check:
 
 admin_login:
     path: /admin/login
-    defaults: { _controller: AdminBundle:Security:login }
+    defaults: { _controller: UserBundle:SecurityAdmin:login }
 
 login_check:
     path: /login_check
