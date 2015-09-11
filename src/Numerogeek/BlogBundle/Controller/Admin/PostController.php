@@ -51,7 +51,7 @@ class PostController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
-            $this->addFlash('success', 'Le post a été créé.');
+            $this->addFlash('success', 'blog.article.flash.create.success');
 
             return $this->redirect($this->generateUrl('blog_admin_post'));
         }
@@ -188,7 +188,7 @@ class PostController extends Controller
 
         if ($editForm->isValid()) {
             $em->flush();
-            $this->addFlash('success', 'Le post a été mis a jour.');
+            $this->addFlash('success', 'blog.article.flash.edit.success');
 
             return $this->redirect($this->generateUrl('blog_admin_post'));
         }
@@ -218,7 +218,7 @@ class PostController extends Controller
                 throw $this->createNotFoundException('Unable to find Post entity.');
             }
 
-            $this->addFlash('success', 'Le post a été supprimé.');
+            $this->addFlash('success', 'blog.article.flash.delete.success');
             $em->remove($entity);
             $em->flush();
         }

@@ -15,23 +15,23 @@ class PostType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', null, array('label' => 'Titre'))
-            ->add('summary', null, array('label' => 'Sommaire'))
+            ->add('title', null, array('label' => 'blog.article.field.title'))
+            ->add('summary', null, array('label' => 'blog.article.field.summary'))
             ->add('content',  'ckeditor', array(
                 'config_name' => 'my_config',
-                'label' => 'Contenu',
+                'label' => 'blog.article.field.content',
             ))
-            ->add('publishedAt', 'datetime', array('label' => 'Date de publication'))
+            ->add('publishedAt', 'datetime', array('label' => 'blog.article.field.publishedAt'))
             ->add('cover', 'vich_image', array(
-                'label' => 'Image de couverture',
+                'label' => 'blog.article.field.cover',
                 'required' => false,
                 'allow_delete' => true, // not mandatory, default is true
                 'download_link' => true, // not mandatory, default is true
             ))
-            ->add('online', null, array('label' => 'Publié'))
+            ->add('online', null, array('label' => 'blog.article.field.online'))
             ->add('category', null,
                 array(
-                    'label' => 'Choisissez une catégorie',
+                    'label' => 'blog.article.field.category',
                 ))
         ;
     }
