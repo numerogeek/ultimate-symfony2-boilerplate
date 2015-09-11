@@ -2,7 +2,7 @@
 
 
     {% block title %}
-        Blog > Liste des catégories
+        Blog > {{ 'blog.category.title.list'|trans }}
     {% endblock%}
     {% block page_title %}
         Blog
@@ -17,7 +17,7 @@
                 <h3 class="box-title">{{   block('title') }}  </h3>
             <span class="pull-right">
                 <a href="{{ path('blog_admin_category_new') }}"><button class="btn btn-block btn-success" ">
-                    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Ajouter une catégorie</button></a>
+                    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> {{ 'blog.category.button.add'|trans }}</button></a>
             </span>
             </div><!-- /.box-header -->
             <div class="box-body">
@@ -28,9 +28,9 @@
                                 <thead>
                                 <tr>
                                     <th>Id</th>
-                                    <th>Name</th>
-                                    <th>Slug</th>
-                                    <th>Actions</th>
+                                    <th>{{ 'blog.category.field.name'|trans }}</th>
+                                    <th>{{ 'blog.category.field.slug'|trans }}</th>
+                                    <th>{{ 'blog.category.misc.actions'|trans }}</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -43,7 +43,7 @@
 
                                             <a  class="btn btn-info" href="{{ path('blog_admin_category_edit', { 'id': entity.id }) }}">
                                                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                                                Editer
+                                                {{ 'blog.category.button.edit'|trans }}
                                             </a>
 
                                         </td>
@@ -53,9 +53,9 @@
                                 <tfoot>
                                 <tr>
                                     <th>Id</th>
-                                    <th>Name</th>
-                                    <th>Slug</th>
-                                    <th>Actions</th>
+                                    <th>{{ 'blog.category.field.name'|trans }}</th>
+                                    <th>{{ 'blog.category.field.slug'|trans }}</th>
+                                    <th>{{ 'blog.category.misc.actions'|trans }}</th>
                                 </tr>
                                 </tfoot>
                             </table></div>

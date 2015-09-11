@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="AdminBundle_Default_index")
+     * @Route("/", name="adminbundle_default_index")
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */

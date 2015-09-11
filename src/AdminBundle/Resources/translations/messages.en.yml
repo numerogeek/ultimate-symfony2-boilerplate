@@ -1,0 +1,9 @@
+# Group
+menu:
+    home: Home
+    blog: Blog
+    user: User
+
+user:
+    list: User List
+    create: Create a user

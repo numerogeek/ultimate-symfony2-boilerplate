@@ -1,0 +1,78 @@
+blog:
+    article:
+        field:
+            title: Title
+            slug: Slug
+            summary: Summary
+            content: Content
+            publishedAt: Published At
+            cover: Cover
+            coverName: Cover Name
+            online : Online
+            category: Category
+            createdAt: Created At
+        misc:
+            actions: Actions
+
+        title:
+            create: Create an article
+            list: Article List
+            edit: Edit an article
+
+        menu:
+            create: Create an article
+            list: Articles
+
+        button:
+            create: Create
+            back: Back to the list
+            reset: Reset
+            see: See
+            edit: Edit
+            update: Update
+            add: Add an article
+
+        flash:
+            create:
+                success: The article has been created with success
+                error:   An error occured creating the article
+            edit:
+                success: The article has been updated with success
+                error:   An error occured updating the article
+            edit:
+                success: The article has been deleted with success
+                error:   An error occured deleting the article
+
+
+
+    category:
+       field:
+            name: Name
+            slug: Slug
+       misc:
+           actions: Actions
+       title:
+           create: Create a category
+           list: Category List
+           edit: Edit a category
+       menu:
+           create: Create a category
+           list: Catgories
+       button:
+           create: Create
+           back: Back to the list
+           reset: Reset
+           see: See
+           edit: Edit
+           update: Update
+           add: Add a category
+       flash:
+           create:
+               success: The category has been created with success
+               error:   An error occured creating the category
+           edit:
+               success: The category has been updated with success
+               error:   An error occured updating the category
+           edit:
+               success: The category has been deleted with success
+               error:   An error occured deleting the category

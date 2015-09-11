@@ -2,7 +2,7 @@
 
 
 {% block title %}
-    Blog > Liste des articles
+    Blog > {{ "blog.article.title.list" |trans }}
 {% endblock%}
 {% block page_title %}
     Blog
@@ -14,10 +14,10 @@
 
     <div class="box">
         <div class="box-header">
-            <h3 class="box-title">Liste des articles</h3>
+            <h3 class="box-title">{{ "blog.article.title.list" |trans }}</h3>
             <span class="pull-right">
                 <a href="{{ path('blog_admin_post_new') }}"><button class="btn btn-block btn-success" ">
-                    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Ajouter un article</button></a>
+                    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> {{ "blog.article.button.add" |trans }} </button></a>
             </span>
         </div><!-- /.box-header -->
         <div class="box-body">
@@ -27,11 +27,11 @@
                         <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                             <thead>
                             <tr>
-                                <th>Titre</th>
-                                <th>Publication</th>
-                                <th>en ligne</th>
-                                <th>Création</th>
-                                <th>Actions</th>
+                                <th>{{ "blog.article.field.title" |trans }}</th>
+                                <th>{{ "blog.article.field.publishedAt" |trans }}</th>
+                                <th>{{ "blog.article.field.online" |trans }}</th>
+                                <th>{{ "blog.article.field.createdAt" |trans }}</th>
+                                <th>{{ "blog.article.misc.actions" |trans }}</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -44,12 +44,12 @@
                                     <td>
                                         <a  class="btn btn-success" href="{{ path('blog_show', { 'slug': entity.slug }) }}">
                                                     <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                                                    Voir
+                                            {{ 'blog.article.button.see' | trans }}
                                                 </a>
 
                                                 <a  class="btn btn-info" href="{{ path('blog_admin_post_edit', { 'id': entity.id }) }}">
                                                     <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                                                    Editer
+                                                    {{ 'blog.article.button.edit' | trans }}
                                                 </a>
                                     </td>
                                 </tr>
@@ -57,11 +57,11 @@
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <th>Titre</th>
-                                    <th>Publication</th>
-                                    <th>en ligne</th>
-                                    <th>Création</th>
-                                    <th>Actions</th>
+                                    <th>{{ "blog.article.field.title" |trans }}</th>
+                                    <th>{{ "blog.article.field.publishedAt" |trans }}</th>
+                                    <th>{{ "blog.article.field.online" |trans }}</th>
+                                    <th>{{ "blog.article.field.createdAt" |trans }}</th>
+                                    <th>{{ "blog.article.misc.actions" |trans }}</th>
                                 </tr>
                             </tfoot>
                         </table></div>
