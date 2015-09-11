@@ -51,7 +51,7 @@ class CategoryController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
-            $this->addFlash('success', 'La catégorie <b>'.$entity->getName().'</b> a bien été créée');
+            $this->addFlash('success', 'blog.category.flash.create.success');
 
             return $this->redirect($this->generateUrl('blog_admin_category', array('id' => $entity->getId())));
         }
