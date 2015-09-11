@@ -2,7 +2,7 @@
 
 
     {% block title %}
-        Users > Liste des utilisateurs
+        Users > {{ "title.user.list" | trans({}, 'FOSUserBundle') }}
     {% endblock%}
     {% block page_title %}
         Users
@@ -28,8 +28,8 @@
                                 <thead>
                                 <tr>
                                     <th>Id</th>
-                                    <th>Email</th>
-                                    <th>Actions</th>
+                                    <th>{{ "form.email" | trans({}, 'FOSUserBundle') }}</th>
+                                    <th>{{ "form.actions" | trans({}, 'FOSUserBundle') }}</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -41,7 +41,7 @@
 
                                             <a  class="btn btn-info" href="{{ path('user_admin_user_edit', { 'id': user.id }) }}">
                                                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                                                Editer
+                                                {{ "form.edit" | trans({}, 'FOSUserBundle') }}
                                             </a>
 
                                         </td>
@@ -51,8 +51,8 @@
                                 <tfoot>
                                 <tr>
                                     <th>Id</th>
-                                    <th>Name</th>
-                                    <th>Actions</th>
+                                    <th>{{ "form.email" | trans({}, 'FOSUserBundle') }}</th>
+                                    <th>{{ "form.actions" | trans({}, 'FOSUserBundle') }}</th>
                                 </tr>
                                 </tfoot>
                             </table></div>

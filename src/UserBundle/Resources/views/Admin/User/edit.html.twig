@@ -1,10 +1,10 @@
 {% extends 'AdminBundle::layout.html.twig' %}
 
 {% block title %}
-    Blog > Editer un utilisateur
+    Users > {{ "title.user.edit" | trans({}, 'FOSUserBundle') }}
 {% endblock%}
 {% block page_title %}
-    Utilisateur
+    Users
 {% endblock %}
 
 {% block page_content %}
@@ -23,9 +23,12 @@
                 <div class="box-footer clearfix">
 
                     <button type="reset" class="btn btn-warning pull-left margin"><i class="fa fa-times"></i> Reset</button>
-                    <a class="btn btn-warning margin" href="{{ path('user_admin_user') }}">Retour à la liste</a>
+                    <a class="btn btn-warning margin" href="{{ path('user_admin_user') }}">
+                        {{ "form.back" | trans({}, 'FOSUserBundle') }}
+                    </a>
 
-                    <button type="submit" class="btn btn-primary pull-right margin"><i class="fa fa-check-square"></i> Mettre à jour</button>
+                    <button type="submit" class="btn btn-primary pull-right margin"><i class="fa fa-check-square"></i>
+                        {{ "form.update" | trans({}, 'FOSUserBundle') }}</button>
                 </div>
                 {{ form_end(form) }}
             </div>

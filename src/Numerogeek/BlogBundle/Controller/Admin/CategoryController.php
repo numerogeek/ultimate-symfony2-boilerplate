@@ -138,8 +138,6 @@ class CategoryController extends Controller
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
-
         return $form;
     }
     /**
@@ -165,8 +163,9 @@ class CategoryController extends Controller
 
         if ($editForm->isValid()) {
             $em->flush();
+            $this->addFlash('success', 'blog.category.flash.edit.success');
 
-            return $this->redirect($this->generateUrl('blog_admin_category_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('blog_admin_category'));
         }
 
         return array(

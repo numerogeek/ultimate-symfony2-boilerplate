@@ -1,16 +1,38 @@
-{% extends '::base.html.twig' %}
+{% extends 'AdminBundle::layout.html.twig' %}
 
-{% block body -%}
-    <h1>Category edit</h1>
-
-    {{ form(edit_form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('blog_admin_category') }}">
-            {{ "blog.category.button.back"|trans }}
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+{% block title %}
+    Blog > {{ "blog.category.title.edit"|trans }}
+{% endblock%}
+{% block page_title %}
+    Blog
 {% endblock %}
+
+{% block page_content %}
+
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+
+            <div class="box box-primary">
+                <div class="box-header">
+                    <h3 class="box-title">{{ "blog.category.title.edit"|trans }}</h3>
+                </div>
+                {{ form_start(edit_form) }}
+                <div class="box-body">
+                    {{ form_rest(edit_form) }}
+                </div>
+                <div class="box-footer clearfix">
+
+                    <button type="reset" class="btn btn-warning pull-left margin"><i class="fa fa-times"></i> Reset</button>
+                    <a class="btn btn-warning margin" href="{{ path('blog_admin_post') }}">{{ "blog.category.button.back"|trans }}</a>
+
+                    <button type="submit" class="btn btn-primary pull-right margin"><i class="fa fa-check-square"></i> {{ "blog.category.button.update"|trans }}</button>
+                </div>
+                {{ form_end(edit_form) }}
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+
