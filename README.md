@@ -8,7 +8,7 @@ This ultimate symfony2 boilerplate comes with :
 * [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle) : Provides user management for your Symfony2 Project. Compatible with Doctrine ORM & ODM, and Propel.
 * [IvoryCKEditorBundle](https://github.com/egeloen/IvoryCKEditorBundle/) : Provides a CKEditor integration for your Symfony2 project.
 * [StofDoctrineExtensionsBundle](https://github.com/stof/StofDoctrineExtensionsBundle) : Integration bundle for DoctrineExtensions by l3pp4rd in Symfony2
-* [https://github.com/dustin10/VichUploaderBundle](https://github.com/dustin10/VichUploaderBundle) : A simple Symfony2 bundle to ease file uploads with ORM entities and ODM documents.
+* [VichUploaderBundle](https://github.com/dustin10/VichUploaderBundle) : A simple Symfony2 bundle to ease file uploads with ORM entities and ODM documents.
 * [LiipImagineBundle](https://github.com/liip/LiipImagineBundle) : Symfony2 Bundle to assist in imagine manipulation using the imagine library http://liip.ch
 * [KnpPaginatorBundle](https://github.com/KnpLabs/KnpPaginatorBundle) : SEO friendly Symfony2 paginator to sort and paginate http://knplabs.com/en/blog/knp-paginator-reborn
 * [FMElfinderBundle] (https://github.com/helios-ag/FMElfinderBundle) : ElFinderBundle provides ElFinder integration with TinyMCE and CKEditor
@@ -16,7 +16,6 @@ This ultimate symfony2 boilerplate comes with :
 * [MremiContactBundle](https://github.com/mremi/ContactBundle) : Provides a contact form for a Symfony2 project.
 * [AvanzuAdminThemeBundle](https://github.com/avanzu/AdminThemeBundle) : Admin Theme based on the AdminLTE Template for easy integration into symfony
 * [AcceleratorCacheBundle](https://github.com/Smart-Core/AcceleratorCacheBundle) : Provide a command to clear PHP Accelerator cache from CLI
-
 
 
 <!-- -->
@@ -79,5 +78,10 @@ Usually when you start a project, you need some dummy data.
 Instead of having a fixtures folder in each bundles, I have made a fixtures bundle which is basically just a folder to store all the
 fixtures of your project.
 
+## about MremiContact Bundle
+
+The bundle comes fully configurated for you. I like to store the sent messages in the database, just in case there's a problem with the mail transport.
+If you want to unactivate the storage in DB, you can set the `store_data` to `false` in the `config.yml`.
+For any further documentation, check the [MremiContactBundle Documentation](https://github.com/mremi/ContactBundle).
 
 

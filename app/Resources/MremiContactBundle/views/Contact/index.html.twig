@@ -1,0 +1,33 @@
+{#
+
+This file is part of the Mremi\ContactBundle Symfony bundle.
+
+(c) Rémi Marseille <marseille.remi@gmail.com>
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+
+{% extends "::base.html.twig" %}
+
+{% trans_default_domain 'MremiContactBundle' %}
+
+{% form_theme form 'MremiContactBundle:Contact:bootstrap_form_theme.html.twig' %}
+
+{% block title %}{{ 'mremi_contact.form_page_title'|trans }}{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/mremibootstrap/css/bootstrap.min.css') }}" type="text/css" media="screen"  />
+    <link rel="stylesheet" href="{{ asset('bundles/mremibootstrap/css/bootstrap-theme.min.css') }}" type="text/css" media="all" />
+{% endblock %}
+
+{% block body %}
+    {{ form_start(form, {'action': path('mremi_contact_form')}) }}
+        <fieldset>
+            <legend>{{ 'mremi_contact.form_title'|trans }}</legend>
+
+            {{ form_widget(form) }}
+        </fieldset>
+    {{ form_end(form) }}
+{% endblock body %}

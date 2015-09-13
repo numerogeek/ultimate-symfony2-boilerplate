@@ -158,7 +158,7 @@ fm_elfinder:
 
 
 mremi_contact:
-    store_data:            false
+    store_data:            true
     contact_class:         AppBundle\Entity\Contact
 
     form:
