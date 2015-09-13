@@ -4,7 +4,7 @@
     <div id="wrapper">
         <div id="container">
             <div id="welcome">
-                <h1><span>Welcome to</span> Symfony {{ constant('Symfony\\Component\\HttpKernel\\Kernel::VERSION') }}</h1>
+                <h1><span>Welcome to</span> the Ultimate Symfony Boilerplate </h1> (Symfony current version is : {{ constant('Symfony\\Component\\HttpKernel\\Kernel::VERSION') }} )
             </div>
 
             <div id="status">
@@ -54,6 +54,17 @@
                         <a href="{{ path('blog_index') }}">
                             A blog bundle !
                         </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('admin_login') }}">
+                            An awesome admin area ! </a>
+                        <i>login : admin / pwd : admin</i>
+                    </li>
+                    <li>
+                        a user manager, an uploader bundle, a fixtures bundle, and much much more, all ready to use !
+                    </li>
+                    <li>
+                        <a href="https://github.com/numerogeek/ultimate-symfony2-boilerplate">Check the doc of the boilerplate</a>
                     </li>
                 </ul>
 

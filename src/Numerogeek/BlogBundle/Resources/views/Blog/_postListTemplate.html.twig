@@ -1,24 +1,13 @@
-<section class="features-extra section-padding" id="assets">
+<div>
+    {% if  post.cover %}
+        <img src="{{ vich_uploader_asset(post, 'cover') | imagine_filter('blog_post_cover') }}" alt=""/>
 
-    <div class="container">
-        <div class="row">
+    {% endif %}
 
-            <div class="col-md-5">
-
-                <div class="feature-list">
-                    <h3><a href="{{ path('blog_show', { 'slug': post.slug }) }}">{{ post.title }}</a></h3>
-                    <p>{{ post.publishedAt | date('d/m/Y') }} - {{ post.summary }} </p>
-                    <a href="{{ path('blog_show', { 'slug': post.slug }) }}" class="btn btn-ghost btn-accent btn-small">Voir le post</a>
-                </div>
-            </div>
-        </div>
+    <div class="feature-list">
+        <h3><a href="{{ path('blog_show', { 'slug': post.slug }) }}">{{ post.title }}</a></h3>
+        <p>{{ post.publishedAt | date('d/m/Y') }} - {{ post.summary }} </p>
+        <a href="{{ path('blog_show', { 'slug': post.slug }) }}">Read more</a>
     </div>
-    <div class="macbook-wrap wp3" style="background: url({{ vich_uploader_asset(post, 'cover') | imagine_filter('post_wide') }})" ></div>
-    <div class="responsive-feature-img">
-        {% if  post.cover %}
-            <img src="{{ vich_uploader_asset(post, 'cover') | imagine_filter('post_wide') }}" alt=""/>
+</div>
 
-        {% endif %}
-        <img src="{{ vich_uploader_asset(post, 'cover') | imagine_filter('post_wide') }}" height="100" alt="responsive devices"></div>
-
-</section>

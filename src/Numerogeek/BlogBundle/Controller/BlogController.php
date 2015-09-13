@@ -22,7 +22,7 @@ class BlogController extends Controller
     public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $posts = $em->getRepository('BlogBundle:Post')->findLatest();
+        $posts = $em->getRepository('NumerogeekBlogBundle:Post')->findLatest();
 
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
@@ -55,7 +55,7 @@ class BlogController extends Controller
         if ($search->isValid()) {
             $posts = $this->getDoctrine()
                 ->getManager()
-                ->getRepository('BlogBundle:Post')
+                ->getRepository('NumerogeekBlogBundle:Post')
                 ->search($keyword);
 
             $paginator = $this->get('knp_paginator');
@@ -74,7 +74,7 @@ class BlogController extends Controller
     public function postShowAction(Post $post)
     {
         $em = $this->getDoctrine()->getManager();
-        $nextPost = $em->getRepository('BlogBundle:Post')->findNext($post);
+        $nextPost = $em->getRepository('NumerogeekBlogBundle:Post')->findNext($post);
 
         return compact('post', 'nextPost');
     }

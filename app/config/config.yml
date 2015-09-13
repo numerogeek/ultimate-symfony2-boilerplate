@@ -123,6 +123,10 @@ liip_imagine:
             quality: 75
             filters:
                 thumbnail: { size: [120, 90], mode: outbound }
+        blog_post_cover:
+            quality: 75
+            filters:
+                thumbnail: { size: [850, 250], mode: outbound }
 
 knp_paginator:
     page_range: 5                      # default page range used in pagination control
