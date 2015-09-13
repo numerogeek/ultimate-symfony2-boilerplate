@@ -1,0 +1,13 @@
+UserBundle\Entity\User:
+    admin:
+        username: admin
+        email: admin@website.com
+        plainPassword: admin
+        name: Admin
+        firstName: Geoffrey
+        address: 7 Boilerplate's street
+        zipCode: 59000
+        city: Lille
+        phone: 0102030405
+        enabled: true
+        roles: ['ROLE_SUPER_ADMIN']

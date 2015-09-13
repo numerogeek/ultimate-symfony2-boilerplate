@@ -38,7 +38,8 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new UserBundle\UserBundle(),
             new Numerogeek\BlogBundle\NumerogeekBlogBundle(),
-            new AdminBundle\AdminBundle()
+            new AdminBundle\AdminBundle(),
+            new FixturesBundle\FixturesBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -1,7 +1,12 @@
 {
     "name": "numerogeek/ultimate-symfony2-boilerplate",
-    "license": "proprietary",
+    "license": "MIT",
     "type": "project",
+    "authors": [
+        {
+        "name": "Geoffrey MONTÉ"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "": "src/",

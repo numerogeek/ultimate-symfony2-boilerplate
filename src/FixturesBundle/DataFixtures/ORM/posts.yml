@@ -1,0 +1,8 @@
+Numerogeek\BlogBundle\Entity\Post:
+    post-{1..20}:
+        title: <sentence(6)>
+        summary: <paragraph(3)>
+        content: <paragraph(15)>
+        publishedAt: <dateTimeBetween('-9days', '-1days')>
+        online: true
+        category: @category1

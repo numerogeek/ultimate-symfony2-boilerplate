@@ -1,0 +1,3 @@
+Numerogeek\BlogBundle\Entity\Category:
+    category1:
+        name: Test Category

@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\DataFixtures\ORM;
+namespace Fixtures\DataFixtures\ORM;
 
 use Hautelook\AliceBundle\Alice\DataFixtureLoader;
 
@@ -10,6 +10,8 @@ class AppFixtures extends DataFixtureLoader
     {
         return array(
             __DIR__.'/users.yml',
+            __DIR__.'/categories.yml',
+            __DIR__.'/posts.yml',
         );
     }
 }

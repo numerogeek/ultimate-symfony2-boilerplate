@@ -1,7 +1,7 @@
 Ultimate Symfony2 Boilerplate
 ================
 
-This is a boilerplate I've made to train myself in Symfony2 and to gain time when I need to kickstart projects
+This is a boilerplate I've made to gain time when I need to kickstart projects
 
 This ultimate symfony2 boilerplate comes with :
 
@@ -53,10 +53,11 @@ $ php app/console avanzu:admin:fetch-vendor
 
 $ php app/console doctrine:database:create
 $ php app/console doctrine:migrations:migrate
+$ php app/console doctrine:fixtures:load
 
-#Create a superadmin user with username `admin` and password `admin`
+# A superadmin user is created with the fixtures with username `admin` and password `admin`
 
-$ php app/console fos:user:create admin admin@admin.com admin --super-admin
+
 
 ```
 
@@ -69,4 +70,14 @@ This boilerplate also comes with 4 customs bundle :
 * NumerogeekBlogBundle : a very simple blog bundle with a backoffice
 * AppBundle : The one from the symfony installer, so you can kickstart your project right now !
 * AdminBundle : which is the core of the admin part. There is not much in there because it mostly use the AvanzuAdminBundle
+* FixturesBundle : see below.
+
+
+## What's the fixtures Bundle ?
+
+Usually when you start a project, you need some dummy data.
+Instead of having a fixtures folder in each bundles, I have made a fixtures bundle which is basically just a folder to store all the
+fixtures of your project.
+
+
 
