@@ -35,6 +35,8 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    form_themes:
+        - 'VichUploaderBundle:Form:fields.html.twig'
 
 # Assetic Configuration
 assetic:
@@ -77,6 +79,7 @@ swiftmailer:
     host:      "%mailer_host%"
     username:  "%mailer_user%"
     password:  "%mailer_password%"
+    port: %mailer_port%
     spool:     { type: memory }
 
 fos_user:
@@ -162,7 +165,7 @@ fm_elfinder:
 
 
 mremi_contact:
-    store_data:            true
+    store_data:            false
     contact_class:         AppBundle\Entity\Contact
 
     form:

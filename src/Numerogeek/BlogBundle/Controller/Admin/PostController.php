@@ -28,7 +28,7 @@ class PostController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('NumerogeekBlogBundle:Post')->findAll();
+        $entities = $em->getRepository('NumerogeekBlogBundle:Post')->findLatest();
 
         return array(
             'entities' => $entities,
@@ -94,31 +94,6 @@ class PostController extends Controller
         return array(
             'entity' => $entity,
             'form' => $form->createView(),
-        );
-    }
-
-    /**
-     * Finds and displays a Post entity.
-     *
-     * @Route("/preview/{id}", name="blog_admin_post_show")
-     * @Method("GET")
-     * @Template()
-     */
-    public function showAction(Post $id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('Numerogeek:BlogBundle:Post')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Post entity.');
-        }
-
-        $deleteForm = $this->createDeleteForm($id);
-
-        return array(
-            'entity' => $entity,
-            'delete_form' => $deleteForm->createView(),
         );
     }
 
@@ -223,7 +198,7 @@ class PostController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('admin_post'));
+        return $this->redirect($this->generateUrl('blog_admin_post'));
     }
 
     /**
@@ -238,7 +213,7 @@ class PostController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('blog_admin_post_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete', 'attr' => array('class' => 'btn btn-danger')))
+            ->add('submit', 'submit', array('label' => 'blog.article.button.delete', 'attr' => array('class' => 'btn btn-danger')))
             ->getForm()
             ;
     }

@@ -18,6 +18,7 @@ blog:
             create: Create an article
             list: Article List
             edit: Edit an article
+            delete: Delete Article
 
         menu:
             create: Create an article
@@ -31,6 +32,7 @@ blog:
             edit: Edit
             update: Update
             add: Add an article
+            delete: Delete
 
         flash:
             create:
@@ -39,7 +41,7 @@ blog:
             edit:
                 success: The article has been updated with success
                 error:   An error occured updating the article
-            edit:
+            delete:
                 success: The article has been deleted with success
                 error:   An error occured deleting the article
 

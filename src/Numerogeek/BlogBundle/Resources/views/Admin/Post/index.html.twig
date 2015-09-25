@@ -37,7 +37,7 @@
                             <tbody>
                             {% for entity in entities %}
                                 <tr>
-                                    <td><a href="{{ path('blog_admin_post_edit', { 'id': entity.id }) }}">{{ entity.title }}}</a></td>
+                                    <td><a href="{{ path('blog_admin_post_edit', { 'id': entity.id }) }}">{{ entity.title }}</a></td>
                                     <td>{% if entity.publishedAt %}{{ entity.publishedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
                                     <td>{{ entity.online }}</td>
                                     <td>{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
@@ -80,7 +80,9 @@
     <!-- page script -->
     <script type="text/javascript">
         $(function () {
-            $('#example1').dataTable();
+            $('#example1').dataTable({
+                "order": [[ 3, "desc" ]]
+            } );
         });
     </script>
 

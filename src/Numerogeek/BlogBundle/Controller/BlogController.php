@@ -22,7 +22,7 @@ class BlogController extends Controller
     public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $posts = $em->getRepository('NumerogeekBlogBundle:Post')->findLatest();
+        $posts = $em->getRepository('NumerogeekBlogBundle:Post')->findLatest($online = true);
 
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate(

@@ -7,23 +7,23 @@ use Numerogeek\BlogBundle\Entity\Post;
 
 class PostRepository extends EntityRepository
 {
-    public function findLatest($limit = Post::NUM_ITEMS, Post $current = null)
+
+    public function findLatest($online = false, Post $current = null)
     {
         $qb = $this
             ->createQueryBuilder('p')
-            ->select('p')
-            ->where('p.publishedAt <= :now')->setParameter('now', new \DateTime())
-            ->andWhere('p.online = :online')->setParameter('online', true)
-        ;
+            ->select('p');
+        if ($online) {
+           $qb->andWhere('p.online = :online')->setParameter('online', true);
+        }
 
         if (!empty($current)) {
             $qb->andWhere('p.id != :current')->setParameter('current', $current->getId());
-            $qb->andWhere('p.category = :category')->setParameter('category', $current->getCategory());
         }
 
-        return $qb->orderBy('p.publishedAt', 'DESC')
-            ->setMaxResults($limit)
-            ->getQuery()
+        $qb->orderBy('p.publishedAt', 'DESC');
+
+        return $qb->getQuery()
             ->getResult();
     }
 
