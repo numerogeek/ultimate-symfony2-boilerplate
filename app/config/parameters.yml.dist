@@ -14,7 +14,7 @@ parameters:
     mailer_host:       127.0.0.1
     mailer_user:       ~
     mailer_password:   ~
-    mailer_port: 587
+    mailer_port:       587
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
@@ -23,4 +23,3 @@ parameters:
     contact_to_name:    ~
     contact_from_email: ~
     contact_from_name:  ~
-

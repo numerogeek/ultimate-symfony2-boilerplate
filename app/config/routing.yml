@@ -19,6 +19,7 @@ _user_bundle:
 
 elfinder:
      resource: "@FMElfinderBundle/Resources/config/routing.yml"
+     prefix:   /admin
 
 admin:
     resource: "@AdminBundle/Controller/"
